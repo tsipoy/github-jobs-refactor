@@ -20,7 +20,6 @@ export const Title = styled.h2`
 `;
 
 export const Input = styled.input`
-
 `;
 
 export const InputText = styled.input`

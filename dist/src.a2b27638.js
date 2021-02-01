@@ -35892,55 +35892,71 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //     justify-content: space-between;
 //     border-radius: 8px;
 // `;
-const Container = _styledComponents.default.div`
-    padding-block-end: 29px;     
+const Container = _styledComponents.default.section`
+  padding-block-end: 29px;
 `;
 exports.Container = Container;
-const Title = _styledComponents.default.h1`
-    
-`;
+const Title = _styledComponents.default.h1``;
 exports.Title = Title;
 const Form = _styledComponents.default.form`
-    background-image: url(/backgroundImg.png);
-    background-repeat: no-repeat;
-    padding-block-end: 41px;
-    padding-block-start: 42px;
-    padding-inline-end: 13px;
-    padding-inline-start: 13px;
-    background-color: #ffffff;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    width: -webkit-fill-available;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  background-image: url(/backgroundImg.png);
+  background-repeat: no-repeat;
+  padding-block-end: 41px;
+  padding-block-start: 42px;
+  padding-inline-end: 13px;
+  padding-inline-start: 13px;
+  /* background-color: #ffffff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); */
+  border-radius: 10px;
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-    @media (min-width: 900px) {
+  @media (min-width: 900px) {
     form {
       margin: auto;
       max-width: 900px;
     }
   }
-    
 `;
 exports.Form = Form;
 const Input = _styledComponents.default.input`
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  position: relative;
+  padding-block-start: 19px;
+  padding-block-end: 25px;
+
+  @media(min-width: 900px) {
+    width: -webkit-fill-available;
+    margin-inline-start: 100px;
+    margin-inline-end: 100px;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+  }
 `;
 exports.Input = Input;
 const Button = _styledComponents.default.button`
-    background-color: #1e86ff;
-    border-radius: 4px;
-    color: white;
-    line-height: 19px;
-    padding-block-start: 14px;
-    padding-block-end: 14px;
-    padding-inline-end: 27px;
-    padding-inline-start: 27px;
-    border: none;   
+  background-color: #1e86ff;
+  border-radius: 4px;
+  color: white;
+  line-height: 19px;
+  padding-block-start: 14px;
+  padding-block-end: 14px;
+  padding-inline-end: 27px;
+  padding-inline-start: 27px;
+  border: none;
+  position: absolute;
+  right: 5%;
+  top: 21%;
+
+  @media(min-width: 900px) {
+    right: 15%;
+    top: 38%;
+  }
 `;
 exports.Button = Button;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/header/index.js":[function(require,module,exports) {
@@ -36032,7 +36048,6 @@ const Title = _styledComponents.default.h2`
 `;
 exports.Title = Title;
 const Input = _styledComponents.default.input`
-
 `;
 exports.Input = Input;
 const InputText = _styledComponents.default.input`
@@ -36108,7 +36123,7 @@ SearchJobs.Label = function SearchJobsLabel({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Type = exports.Text = exports.TextWrapper = exports.Link = exports.Image = exports.CompanyName = exports.Title = exports.AllJobsWrapper = exports.Container = void 0;
+exports.Type = exports.Text = exports.TextWrapper = exports.Link = exports.ImageContainer = exports.Image = exports.CompanyAbout = exports.CompanyName = exports.Title = exports.AllJobsWrapper = exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -36116,8 +36131,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Container, Title, Image, Link, Text
 const Container = _styledComponents.default.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
   background-color: #ffffff;
   box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
@@ -36128,13 +36144,19 @@ const Container = _styledComponents.default.div`
   word-wrap: break-word;
 
   @media (min-width: 900px) {
-    padding-block-end: 0;
+    grid-template-columns: 20% 80%;
+    padding-block-end: 16px;
     margin-inline-start: 23px;
   }
 `;
 exports.Container = Container;
 const AllJobsWrapper = _styledComponents.default.div`
-  padding-inline-start: 16px;
+  @media(min-width: 900px) {
+    display: flex;
+    flex-direction: row;
+    padding-inline-start: 16px;
+    justify-content: space-between;
+  }
 `;
 exports.AllJobsWrapper = AllJobsWrapper;
 const Title = _styledComponents.default.p`
@@ -36150,11 +36172,18 @@ const CompanyName = _styledComponents.default.p`
   line-height: 14px;
 `;
 exports.CompanyName = CompanyName;
+const CompanyAbout = _styledComponents.default.div`
+  @media(min-width: 900px) {
+    max-width: 30%;
+  }
+`;
+exports.CompanyAbout = CompanyAbout;
 const Image = _styledComponents.default.img`
-  width: 100px;
-  height: 100px;
+  max-width: 100%;
 `;
 exports.Image = Image;
+const ImageContainer = _styledComponents.default.div``;
+exports.ImageContainer = ImageContainer;
 const Link = _styledComponents.default.div``;
 exports.Link = Link;
 const TextWrapper = _styledComponents.default.div`
@@ -36222,6 +36251,20 @@ ListOfJobs.Image = function ListOfJobsImage({
   }));
 };
 
+ListOfJobs.CompanyAbout = function ListOfJobsCompanyAbout({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_listOfJobs.CompanyAbout, restProps, children);
+};
+
+ListOfJobs.ImageContainer = function ListOfJobsImageContainer({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_listOfJobs.ImageContainer, restProps, children);
+};
+
 ListOfJobs.Link = function ListOfJobsLink({
   to,
   children,
@@ -36266,7 +36309,75 @@ ListOfJobs.TextWrapper = function ListOfJobsTextWrapper({
 }) {
   return /*#__PURE__*/_react.default.createElement(_listOfJobs.TextWrapper, restProps, children);
 };
-},{"react":"node_modules/react/index.js","./styles/listOfJobs":"src/components/listOfJobs/styles/listOfJobs.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/listOfJobs":"src/components/listOfJobs/styles/listOfJobs.js"}],"src/components/feature/styles/feature.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MainDivision = exports.Main = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.div`
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+
+    @media(min-width: 900px) {
+        margin: auto;
+        max-width: 1100px;
+    }
+
+`;
+exports.Container = Container;
+const Main = _styledComponents.default.div`
+    @media(min-width: 900px) {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    }
+`;
+exports.Main = Main;
+const MainDivision = _styledComponents.default.div`
+    
+`;
+exports.MainDivision = MainDivision;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/feature/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Feature;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _feature = require("./styles/feature");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Feature({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_feature.Container, restProps, children);
+}
+
+Feature.Main = function FeatureMain({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_feature.Main, restProps, children);
+};
+
+Feature.MainDivision = function FeatureMainDivision({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_feature.MainDivision, restProps, children);
+};
+},{"react":"node_modules/react/index.js","./styles/feature":"src/components/feature/styles/feature.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36290,6 +36401,12 @@ Object.defineProperty(exports, "ListOfJobs", {
     return _listOfJobs.default;
   }
 });
+Object.defineProperty(exports, "Feature", {
+  enumerable: true,
+  get: function () {
+    return _feature.default;
+  }
+});
 
 var _header = _interopRequireDefault(require("./header"));
 
@@ -36297,8 +36414,10 @@ var _searchJobs = _interopRequireDefault(require("./searchJobs"));
 
 var _listOfJobs = _interopRequireDefault(require("./listOfJobs"));
 
+var _feature = _interopRequireDefault(require("./feature"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./header":"src/components/header/index.js","./searchJobs":"src/components/searchJobs/index.js","./listOfJobs":"src/components/listOfJobs/index.js"}],"src/containers/header.js":[function(require,module,exports) {
+},{"./header":"src/components/header/index.js","./searchJobs":"src/components/searchJobs/index.js","./listOfJobs":"src/components/listOfJobs/index.js","./feature":"src/components/feature/index.js"}],"src/containers/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36358,9 +36477,9 @@ function ListOfJobsContainer() {
   console.log(allJobs);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, allJobs.map(job => /*#__PURE__*/_react.default.createElement(_components.ListOfJobs, {
     key: job.id
-  }, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Image, {
+  }, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.ImageContainer, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Image, {
     src: job.company_logo
-  }), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.AllJobsWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.CompanyName, null, job.company), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Title, null, job.title), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Type, null, job.type), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.TextWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.location), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.created_at))))));
+  })), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.AllJobsWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.CompanyAbout, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.CompanyName, null, job.company), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Title, null, job.title), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Type, null, job.type)), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.TextWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.location), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.created_at))))));
 }
 },{"react":"node_modules/react/index.js","../context/globalContext":"src/context/globalContext.js","../components":"src/components/index.js"}],"src/containers/searchJobs.js":[function(require,module,exports) {
 "use strict";
@@ -36406,6 +36525,8 @@ exports.default = Home;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _components = require("../components");
+
 var _header = _interopRequireDefault(require("../containers/header"));
 
 var _listOfJobs = _interopRequireDefault(require("../containers/listOfJobs"));
@@ -36415,9 +36536,9 @@ var _searchJobs = _interopRequireDefault(require("../containers/searchJobs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Home() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_searchJobs.default, null), /*#__PURE__*/_react.default.createElement(_listOfJobs.default, null));
+  return /*#__PURE__*/_react.default.createElement(_components.Feature, null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_components.Feature.Main, null, /*#__PURE__*/_react.default.createElement(_components.Feature.MainDivision, null, /*#__PURE__*/_react.default.createElement(_searchJobs.default, null)), /*#__PURE__*/_react.default.createElement(_components.Feature.MainDivision, null, /*#__PURE__*/_react.default.createElement(_listOfJobs.default, null))));
 }
-},{"react":"node_modules/react/index.js","../containers/header":"src/containers/header.js","../containers/listOfJobs":"src/containers/listOfJobs.js","../containers/searchJobs":"src/containers/searchJobs.js"}],"src/pages/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/listOfJobs":"src/containers/listOfJobs.js","../containers/searchJobs":"src/containers/searchJobs.js"}],"src/pages/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36498,7 +36619,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55606" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49846" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

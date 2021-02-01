@@ -3,8 +3,9 @@ import styled from "styled-components";
 // Container, Title, Image, Link, Text
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
   background-color: #ffffff;
   box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
@@ -15,13 +16,19 @@ export const Container = styled.div`
   word-wrap: break-word;
 
   @media (min-width: 900px) {
-    padding-block-end: 0;
+    grid-template-columns: 20% 80%;
+    padding-block-end: 16px;
     margin-inline-start: 23px;
   }
 `;
 
 export const AllJobsWrapper = styled.div`
-  padding-inline-start: 16px;
+  @media(min-width: 900px) {
+    display: flex;
+    flex-direction: row;
+    padding-inline-start: 16px;
+    justify-content: space-between;
+  }
 `;
 
 export const Title = styled.p`
@@ -37,10 +44,17 @@ export const CompanyName = styled.p`
   line-height: 14px;
 `;
 
-export const Image = styled.img`
-  width: 100px;
-  height: 100px;
+export const CompanyAbout = styled.div `
+  @media(min-width: 900px) {
+    max-width: 30%;
+  }
 `;
+
+export const Image = styled.img`
+  max-width: 100%;
+`;
+
+export const ImageContainer = styled.div ``;
 
 export const Link = styled.div``;
 

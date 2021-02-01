@@ -1,40 +1,75 @@
 import React from "react";
 
-import { Container, Title, Image, Link, Text, AllJobsWrapper, Type, CompanyName, TextWrapper } from "./styles/listOfJobs"
+import {
+  Container,
+  Title,
+  Image,
+  Link,
+  Text,
+  AllJobsWrapper,
+  Type,
+  CompanyName,
+  TextWrapper,
+  ImageContainer,
+  CompanyAbout
+} from "./styles/listOfJobs";
 
-export default function ListOfJobs({children, ...restProps}) {
-    return <Container {...restProps}>{children}</Container>
+export default function ListOfJobs({ children, ...restProps }) {
+  return <Container {...restProps}>{children}</Container>;
 }
 
-ListOfJobs.Title = function ListOfJobsTitle({children, ...restProps}) {
-    return <Title {...restProps}>{children}</Title>
+ListOfJobs.Title = function ListOfJobsTitle({ children, ...restProps }) {
+  return <Title {...restProps}>{children}</Title>;
 };
 
-ListOfJobs.Image = function ListOfJobsImage({src, children, ...restProps}) {
-    return <Image {...restProps} src={src} />
+ListOfJobs.Image = function ListOfJobsImage({ src, children, ...restProps }) {
+  return <Image {...restProps} src={src} />;
 };
 
-ListOfJobs.Link = function ListOfJobsLink({ to, children, ...restProps}) {
-    return <Link {...restProps} to={to}>{children}</Link>
+ListOfJobs.CompanyAbout = function ListOfJobsCompanyAbout({ children, ...restProps }) {
+  return <CompanyAbout {...restProps}>{children}</CompanyAbout>;
 };
 
-ListOfJobs.Text = function ListOfJobsText({children, ...restProps}) {
-    return <Text {...restProps}>{children}</Text>
+ListOfJobs.ImageContainer = function ListOfJobsImageContainer({
+  children,
+  ...restProps
+}) {
+  return <ImageContainer {...restProps}>{children}</ImageContainer>;
 };
 
-ListOfJobs.AllJobsWrapper = function ListOfJobsAllJobsWrapper({children, ...restProps}) {
-    return <AllJobsWrapper {...restProps}>{children}</AllJobsWrapper>
+ListOfJobs.Link = function ListOfJobsLink({ to, children, ...restProps }) {
+  return (
+    <Link {...restProps} to={to}>
+      {children}
+    </Link>
+  );
 };
 
-
-ListOfJobs.Type = function ListOfJobsType({children, ...restProps}) {
-    return <Type {...restProps}>{children}</Type>
+ListOfJobs.Text = function ListOfJobsText({ children, ...restProps }) {
+  return <Text {...restProps}>{children}</Text>;
 };
 
-ListOfJobs.CompanyName = function ListOfJobsCompanyName({children, ...restProps}) {
-    return <CompanyName {...restProps}>{children}</CompanyName>
+ListOfJobs.AllJobsWrapper = function ListOfJobsAllJobsWrapper({
+  children,
+  ...restProps
+}) {
+  return <AllJobsWrapper {...restProps}>{children}</AllJobsWrapper>;
 };
 
-ListOfJobs.TextWrapper = function ListOfJobsTextWrapper({children, ...restProps}) {
-    return <TextWrapper {...restProps}>{children}</TextWrapper>
+ListOfJobs.Type = function ListOfJobsType({ children, ...restProps }) {
+  return <Type {...restProps}>{children}</Type>;
+};
+
+ListOfJobs.CompanyName = function ListOfJobsCompanyName({
+  children,
+  ...restProps
+}) {
+  return <CompanyName {...restProps}>{children}</CompanyName>;
+};
+
+ListOfJobs.TextWrapper = function ListOfJobsTextWrapper({
+  children,
+  ...restProps
+}) {
+  return <TextWrapper {...restProps}>{children}</TextWrapper>;
 };
