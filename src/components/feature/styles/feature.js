@@ -19,5 +19,10 @@ export const Main = styled.div `
 `;
 
 export const MainDivision = styled.div `
-    
+`;
+
+export const Loading = styled.p `
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
 `;

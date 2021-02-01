@@ -19,7 +19,11 @@ export const Container = styled.section`
   padding-block-end: 29px;
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  margin-block-start: -4px;
+  padding-block-start: 32px;
+`;
+
 export const Form = styled.form`
   background-image: url(/backgroundImg.png);
   background-repeat: no-repeat;
@@ -27,8 +31,6 @@ export const Form = styled.form`
   padding-block-start: 42px;
   padding-inline-end: 13px;
   padding-inline-start: 13px;
-  /* background-color: #ffffff;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); */
   border-radius: 10px;
   width: -webkit-fill-available;
   display: flex;
@@ -71,10 +73,10 @@ export const Button = styled.button`
   border: none;
   position: absolute;
   right: 5%;
-  top: 21%;
+  top: 22%;
 
   @media(min-width: 900px) {
     right: 15%;
-    top: 38%;
+    top: 40%;
   }
 `;

@@ -63,7 +63,6 @@ export const TextWrapper = styled.div`
     flex-direction: row;    
 `;
 
-
 export const Text = styled.p`
   padding-inline-end: 16px;
   color: #b9bdcf;
