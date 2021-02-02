@@ -20,27 +20,54 @@ function ContextProvider({ children }) {
                 }
                 break;
             }
+
+            case "SET_SEARCH" : {
+                return {
+                    ...state, location: action.search,
+                }
+                break;
+            }
+
+            case "SET_INPUT_VALUE" : {
+                return {
+                    ...state, inputValue: action.inputValue,
+                }
+                break;
+            }
+
             default:
                 return state
         }
     }, {
         allJobs: [],
         isLoaded: true,
+        search: [],
+        inputValue: "",
     })
 
-    const getJobs = async () => {
-        const response = await fetch(ENDPOINT);
-        const data = await response.json();
-        dispatch({ type:"SET_ALLJOBS", getAllJobs: data })
-    }
+//   const searchJobs = stays.filter(( dispatch({ type: ""})) =>
+//     stay.city.toLowerCase().includes(inputValue.toLowerCase())
+//   );
 
-    useEffect(() => {
-        setTimeout(() => dispatch({ type:"SET_ISLOADED"})  , 10000 )
-    }, [])
 
-    useEffect(() => {
-        getJobs()
-    }, [])
+const getJobs = async () => {
+    const response = await fetch(ENDPOINT);
+    const data = await response.json();
+    dispatch({ type:"SET_ALLJOBS", getAllJobs: data })
+}
+
+useEffect(() => {
+    setTimeout(() => dispatch({ type:"SET_ISLOADED"})  , 10000 )
+}, [])
+
+useEffect(() => {
+    getJobs()
+}, [])
+
+// useEffect(() => {
+//   setStays(searchJobs);
+//   dispatch({ type:"SET_ALLJOBS", search: searchJobs })
+// }, [location, inputValue]);
 
     return (
         <Context.Provider value={{ state, dispatch }}>

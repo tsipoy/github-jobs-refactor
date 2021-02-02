@@ -56,7 +56,9 @@ export const Image = styled.img`
 
 export const ImageContainer = styled.div ``;
 
-export const Link = styled.div``;
+export const Link = styled.a`
+  text-decoration: none;
+`;
 
 export const TextWrapper = styled.div`
     display: flex;

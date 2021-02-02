@@ -32057,13 +32057,33 @@ function ContextProvider({
           break;
         }
 
+      case "SET_SEARCH":
+        {
+          return { ...state,
+            location: action.search
+          };
+          break;
+        }
+
+      case "SET_INPUT_VALUE":
+        {
+          return { ...state,
+            inputValue: action.inputValue
+          };
+          break;
+        }
+
       default:
         return state;
     }
   }, {
     allJobs: [],
-    isLoaded: true
-  });
+    isLoaded: true,
+    search: [],
+    inputValue: ""
+  }); //   const searchJobs = stays.filter(( dispatch({ type: ""})) =>
+  //     stay.city.toLowerCase().includes(inputValue.toLowerCase())
+  //   );
 
   const getJobs = async () => {
     const response = await fetch(ENDPOINT);
@@ -32081,7 +32101,11 @@ function ContextProvider({
   }, []);
   (0, _react.useEffect)(() => {
     getJobs();
-  }, []);
+  }, []); // useEffect(() => {
+  //   setStays(searchJobs);
+  //   dispatch({ type:"SET_ALLJOBS", search: searchJobs })
+  // }, [location, inputValue]);
+
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       state,
@@ -35956,7 +35980,7 @@ const Button = _styledComponents.default.button`
 
   @media(min-width: 900px) {
     right: 15%;
-    top: 40%;
+    top: 25.5%;
   }
 `;
 exports.Button = Button;
@@ -36185,7 +36209,9 @@ const Image = _styledComponents.default.img`
 exports.Image = Image;
 const ImageContainer = _styledComponents.default.div``;
 exports.ImageContainer = ImageContainer;
-const Link = _styledComponents.default.div``;
+const Link = _styledComponents.default.a`
+  text-decoration: none;
+`;
 exports.Link = Link;
 const TextWrapper = _styledComponents.default.div`
     display: flex;
@@ -36267,12 +36293,12 @@ ListOfJobs.ImageContainer = function ListOfJobsImageContainer({
 };
 
 ListOfJobs.Link = function ListOfJobsLink({
-  to,
+  href,
   children,
   ...restProps
 }) {
   return /*#__PURE__*/_react.default.createElement(_listOfJobs.Link, _extends({}, restProps, {
-    to: to
+    href: href
   }), children);
 };
 
@@ -36390,7 +36416,181 @@ Feature.Loading = function FeatureLoading({
 }) {
   return /*#__PURE__*/_react.default.createElement(_feature.Loading, restProps, children);
 };
-},{"react":"node_modules/react/index.js","./styles/feature":"src/components/feature/styles/feature.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/feature":"src/components/feature/styles/feature.js"}],"src/components/description/styles/description.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CompanyWrapper = exports.JobNameWrapper = exports.ImageContainer = exports.Image = exports.TextSmall = exports.Text = exports.Link = exports.SubTitle = exports.CompanyName = exports.Type = exports.Title = exports.DescriptionWrapper = exports.DescriptionContent = exports.BigTitle = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.section``;
+exports.Container = Container;
+const BigTitle = _styledComponents.default.h1``;
+exports.BigTitle = BigTitle;
+const DescriptionContent = _styledComponents.default.div``;
+exports.DescriptionContent = DescriptionContent;
+const DescriptionWrapper = _styledComponents.default.div``;
+exports.DescriptionWrapper = DescriptionWrapper;
+const Title = _styledComponents.default.h2``;
+exports.Title = Title;
+const Type = _styledComponents.default.p``;
+exports.Type = Type;
+const CompanyName = _styledComponents.default.p``;
+exports.CompanyName = CompanyName;
+const SubTitle = _styledComponents.default.h3``;
+exports.SubTitle = SubTitle;
+const Link = _styledComponents.default.a``;
+exports.Link = Link;
+const Text = _styledComponents.default.p``;
+exports.Text = Text;
+const TextSmall = _styledComponents.default.small``;
+exports.TextSmall = TextSmall;
+const Image = _styledComponents.default.img``;
+exports.Image = Image;
+const ImageContainer = _styledComponents.default.div``;
+exports.ImageContainer = ImageContainer;
+const JobNameWrapper = _styledComponents.default.div``;
+exports.JobNameWrapper = JobNameWrapper;
+const CompanyWrapper = _styledComponents.default.div``;
+exports.CompanyWrapper = CompanyWrapper;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/description/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Description;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _description = require("./styles/description");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function Description({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Container, restProps, children);
+}
+
+Description.BigTitle = function DescriptionBigTitle({
+  src,
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.BigTitle, _extends({}, restProps, {
+    src: src
+  }), children);
+};
+
+Description.DescriptionContent = function DescriptionDescriptionContent({
+  src,
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.DescriptionContent, _extends({}, restProps, {
+    src: src
+  }), children);
+};
+
+Description.DescriptionWrapper = function DescriptionDescriptionWrapper({
+  src,
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.DescriptionWrapper, _extends({}, restProps, {
+    src: src
+  }), children);
+};
+
+Description.Title = function DescriptionTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Title, restProps, children);
+};
+
+Description.SubTitle = function DescriptionSubTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.SubTitle, restProps, children);
+};
+
+Description.Link = function DescriptionLink({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Link, restProps, children);
+};
+
+Description.Text = function DescriptionText({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Text, restProps, children);
+};
+
+Description.TextSmall = function DescriptionTextSmall({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.TextSmall, restProps, children);
+};
+
+Description.ImageContainer = function DescriptionImageContainer({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.ImageContainer, restProps, children);
+};
+
+Description.Image = function DescriptionImage({
+  src,
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Image, _extends({}, restProps, {
+    src: src
+  }));
+};
+
+Description.Type = function DescriptionType({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.Type, restProps, children);
+};
+
+Description.CompanyWrapper = function DescriptionCompany({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.CompanyWrapper, restProps, children);
+};
+
+Description.JobNameWrapper = function DescriptionJobNameWrapper({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.JobNameWrapper, restProps, children);
+};
+
+Description.CompanyName = function DescriptionCompanyName({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_description.CompanyName, restProps, children);
+};
+},{"react":"node_modules/react/index.js","./styles/description":"src/components/description/styles/description.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36420,6 +36620,12 @@ Object.defineProperty(exports, "Feature", {
     return _feature.default;
   }
 });
+Object.defineProperty(exports, "Description", {
+  enumerable: true,
+  get: function () {
+    return _description.default;
+  }
+});
 
 var _header = _interopRequireDefault(require("./header"));
 
@@ -36429,8 +36635,49 @@ var _listOfJobs = _interopRequireDefault(require("./listOfJobs"));
 
 var _feature = _interopRequireDefault(require("./feature"));
 
+var _description = _interopRequireDefault(require("./description"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./header":"src/components/header/index.js","./searchJobs":"src/components/searchJobs/index.js","./listOfJobs":"src/components/listOfJobs/index.js","./feature":"src/components/feature/index.js"}],"src/containers/header.js":[function(require,module,exports) {
+},{"./header":"src/components/header/index.js","./searchJobs":"src/components/searchJobs/index.js","./listOfJobs":"src/components/listOfJobs/index.js","./feature":"src/components/feature/index.js","./description":"src/components/description/index.js"}],"src/containers/jobDescription.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = JobDescriptionContainer;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouter = require("react-router");
+
+var _components = require("../components");
+
+var _globalContext = require("../context/globalContext");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function JobDescriptionContainer() {
+  const {
+    state
+  } = (0, _react.useContext)(_globalContext.Context);
+  const {
+    allJobs
+  } = state;
+  const {
+    jobId
+  } = (0, _reactRouter.useParams)();
+  console.log(jobId);
+  const jobDetails = allJobs !== [] && allJobs.find(job => job.id = jobId);
+  console.log(jobDetails);
+  return /*#__PURE__*/_react.default.createElement(_components.Description, null, /*#__PURE__*/_react.default.createElement(_components.Description.BigTitle, null, "Github Jobs"), /*#__PURE__*/_react.default.createElement(_components.Description.DescriptionContent, null, /*#__PURE__*/_react.default.createElement(_components.Description.DescriptionWrapper, null, /*#__PURE__*/_react.default.createElement(_components.Description.Link, {
+    href: "/"
+  }, "Back to search"), /*#__PURE__*/_react.default.createElement(_components.Description.SubTitle, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_components.Description.Text, null, "Please email a copy of your resume and online portfolio to wes@kasisto.com & CC eric@kasisto.com")), /*#__PURE__*/_react.default.createElement(_components.Description.DescriptionWrapper, null, /*#__PURE__*/_react.default.createElement(_components.Description.JobNameWrapper, null, /*#__PURE__*/_react.default.createElement(_components.Description.Title, null, jobDetails?.title), /*#__PURE__*/_react.default.createElement(_components.Description.Type, null, jobDetails?.type), /*#__PURE__*/_react.default.createElement(_components.Description.TextSmall, null, jobDetails?.created_at)), /*#__PURE__*/_react.default.createElement(_components.Description.CompanyName, null, jobDetails?.company), /*#__PURE__*/_react.default.createElement(_components.Description.CompanyWrapper, null, /*#__PURE__*/_react.default.createElement(_components.Description.ImageContainer, null, /*#__PURE__*/_react.default.createElement(_components.Description.Image, {
+    src: jobDetails?.company_logo
+  })), /*#__PURE__*/_react.default.createElement(_components.Description.TextSmall, null, jobDetails?.location), /*#__PURE__*/_react.default.createElement(_components.Description.Text, null, jobDetails?.description)))));
+}
+},{"react":"node_modules/react/index.js","react-router":"node_modules/react-router/esm/react-router.js","../components":"src/components/index.js","../context/globalContext":"src/context/globalContext.js"}],"src/containers/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36455,11 +36702,11 @@ function HeaderContainer() {
   const {
     allJobs
   } = state;
-  const [inputValue, setInputValue] = (0, _react.useState)("");
-  const [location, setLocation] = (0, _react.useState)([]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_components.Header, null, /*#__PURE__*/_react.default.createElement(_components.Header.Title, null, "Github Jobs"), /*#__PURE__*/_react.default.createElement(_components.Header, null, /*#__PURE__*/_react.default.createElement(_components.Header.Form, null, /*#__PURE__*/_react.default.createElement(_components.Header.Input, {
     type: "text",
-    placeholder: "Title, companies, expertise or benefits"
+    placeholder: "Title, companies, expertise or benefits" // value={inputValue} 
+    // onChange={(e) => dispatch({ type: "SET_INPUT_VALUE",  inputValue: e.target.value })}
+
   }), /*#__PURE__*/_react.default.createElement(_components.Header.Button, null, "Search")))));
 }
 },{"react":"node_modules/react/index.js","../context/globalContext":"src/context/globalContext.js","../components":"src/components/index.js"}],"src/containers/listOfJobs.js":[function(require,module,exports) {
@@ -36488,11 +36735,12 @@ function ListOfJobsContainer() {
     allJobs
   } = state;
   console.log(allJobs);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, allJobs.map(job => /*#__PURE__*/_react.default.createElement(_components.ListOfJobs, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, allJobs.map(job => /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Link, {
+    href: "/description/:jobId",
     key: job.id
-  }, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.ImageContainer, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Image, {
+  }, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.ImageContainer, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Image, {
     src: job.company_logo
-  })), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.AllJobsWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.CompanyAbout, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.CompanyName, null, job.company), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Title, null, job.title), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Type, null, job.type)), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.TextWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.location), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.created_at))))));
+  })), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.AllJobsWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.CompanyAbout, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.CompanyName, null, job.company), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Title, null, job.title), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Type, null, job.type)), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.TextWrapper, null, /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.location), /*#__PURE__*/_react.default.createElement(_components.ListOfJobs.Text, null, job.created_at)))))));
 }
 },{"react":"node_modules/react/index.js","../context/globalContext":"src/context/globalContext.js","../components":"src/components/index.js"}],"src/containers/searchJobs.js":[function(require,module,exports) {
 "use strict";
@@ -36591,16 +36839,22 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _jobDescription = _interopRequireDefault(require("./containers/jobDescription"));
+
 var _pages = require("./pages");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function app() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/description/:jobId"
+  }, /*#__PURE__*/_react.default.createElement(_jobDescription.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_pages.Home, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./pages":"src/pages/index.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./containers/jobDescription":"src/containers/jobDescription.js","./pages":"src/pages/index.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -36644,7 +36898,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49846" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54503" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

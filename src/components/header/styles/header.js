@@ -77,6 +77,6 @@ export const Button = styled.button`
 
   @media(min-width: 900px) {
     right: 15%;
-    top: 40%;
+    top: 25.5%;
   }
 `;

@@ -3,6 +3,7 @@ import React from "react";
 import {
   Container,
   Title,
+  ImageContainer,
   Image,
   Link,
   Text,
@@ -10,7 +11,6 @@ import {
   Type,
   CompanyName,
   TextWrapper,
-  ImageContainer,
   CompanyAbout
 } from "./styles/listOfJobs";
 
@@ -37,9 +37,9 @@ ListOfJobs.ImageContainer = function ListOfJobsImageContainer({
   return <ImageContainer {...restProps}>{children}</ImageContainer>;
 };
 
-ListOfJobs.Link = function ListOfJobsLink({ to, children, ...restProps }) {
+ListOfJobs.Link = function ListOfJobsLink({ href, children, ...restProps }) {
   return (
-    <Link {...restProps} to={to}>
+    <Link {...restProps} href={href}>
       {children}
     </Link>
   );
